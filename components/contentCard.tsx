@@ -11,6 +11,8 @@ export default async function ContentCard() {
   if (!contents.length) {
     return (
       <div className="p-6 text-sm text-gray-600">
+        <h1>
+        </h1>
         No content yet. Add your first note or link!
       </div>
     )

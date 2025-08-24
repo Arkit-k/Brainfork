@@ -56,7 +56,7 @@ export default function CreateContentForm() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button>Create Content</Button>
+        <Button>+ Create</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
