@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import { ContentTypeSelect } from "./popover"
 
 export default function CreateContentForm() {
   const [open, setOpen] = useState(false)
@@ -25,6 +26,7 @@ export default function CreateContentForm() {
     link: "",
     discription: "",
     tags: "",
+    type:""
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -45,7 +47,7 @@ export default function CreateContentForm() {
 
         await createContent(parsed)
         setOpen(false)
-        setForm({ title: "", link: "", discription: "", tags: "" })
+        setForm({ title: "", link: "", discription: "", tags: "", type: "" })
         window.location.reload() // later: replace with optimistic UI
       } catch (err) {
         console.error("Validation error:", err)
@@ -71,6 +73,9 @@ export default function CreateContentForm() {
               onChange={handleChange}
               placeholder="Enter a title"
             />
+          </div>
+          <div>
+          <ContentTypeSelect />
           </div>
           <div>
             <Label>Link</Label>

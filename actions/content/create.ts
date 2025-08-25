@@ -24,6 +24,7 @@ export async function createContent(data: z.infer<typeof ContentSchemas>) { // ð
       title: parsed.title,
       link: parsed.link,
       discription: parsed.discription,
+      type: parsed.type,
       tags: {
         connectOrCreate: parsed.tags.map((tag) => ({
           where: { name: tag },

@@ -61,8 +61,16 @@ model ContentSchema {
   title     String
   link      String
   discription  String
+  type        ContentType  @default(NOTES)
 
   // relations
   user User   @relation(fields: [userId], references: [id])
   tags Tags[] @relation("ContentTags")
+}
+
+enum ContentType {
+  NOTES
+  YOUTUBE
+  TWITTER
+  NOTION
 }

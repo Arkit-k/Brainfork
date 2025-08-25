@@ -16,5 +16,6 @@ export const ContentSchemas = z.object({
   title:z.string().min(2),
   link : z.string(),
   discription: z.string(),
-  tags:z.string().array()
+  tags:z.string().array(),
+  type: z.enum(["NOTION", "TWITTER", "YOUTUBE", "NOTES"]),
 })
