@@ -35,7 +35,7 @@ export default function CreateContentForm() {
   const isFormValid = 
   form.title.trim() && 
   form.link.trim() && 
-  form.tags.trim()
+  form.tags.trim() 
 
   const handleSubmit = () => {
     startTransition(async () => {
@@ -75,7 +75,10 @@ export default function CreateContentForm() {
             />
           </div>
           <div>
-          <ContentTypeSelect />
+          <ContentTypeSelect
+          value={form.type}
+          onChange={(val) => setForm({ ...form, type: val })}
+           />
           </div>
           <div>
             <Label>Link</Label>

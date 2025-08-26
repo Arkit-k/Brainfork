@@ -54,8 +54,8 @@ export const RegisterForm = () => {
   return (
     <Card className="w-[400px]">
       <CardHeader>
-        <CardTitle>Auth.js</CardTitle>
-        <CardDescription>Create an account!</CardDescription>
+      <CardTitle>Create a brain fork</CardTitle>
+      <CardDescription>Welcome! Create an account to get started</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>

@@ -19,16 +19,22 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
+// Make sure these match your Zod schema
 const contentTypes = [
-  { value: "notion", label: "Notion Docs" },
-  { value: "tweet", label: "Tweets" },
-  { value: "blog", label: "Blogs" },
-  { value: "youtube", label: "YouTube Links" },
+  { value: "NOTION", label: "Notion Docs" },
+  { value: "TWITTER", label: "Tweets" },
+  { value: "NOTES", label: "Notes" },
+  { value: "YOUTUBE", label: "YouTube Links" },
 ]
 
-export function ContentTypeSelect() {
+export function ContentTypeSelect({
+  value,
+  onChange,
+}: {
+  value: string
+  onChange: (val: string) => void
+}) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -56,7 +62,7 @@ export function ContentTypeSelect() {
                   key={type.value}
                   value={type.value}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
+                    onChange(currentValue) // ✅ update parent state
                     setOpen(false)
                   }}
                 >

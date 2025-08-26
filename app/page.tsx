@@ -1,20 +1,19 @@
 import { LoginButton } from "@/components/login-button";
 import { Button } from "@/components/ui/button";
+import  { HeroHeader } from "../components/landing page/header"
+import HeroSection from "@/components/landing page/hero";
+import { HeroVideoDialogDemoTopInBottomOut } from "@/components/landing page/herovideo";
+import Features from "@/components/landing page/feature";
 
 export default function Home() {
   return (
-    <main className="flex h-full flex-col items-center justify-center blue">
-      <div className="space-y-6">
-        <h1 className="text-6xl font-bold black drop-shadow-md">Auth</h1>
-        <p className="text-white text-lg">Auth.js authentication demo</p>
-        <div>
-          <LoginButton>
-            <Button size="lg" variant="secondary">
-              Sign in
-            </Button>
-          </LoginButton>
-        </div>
+    <main>
+      <HeroHeader />
+      <HeroSection/>
+     <div className="md:ml-20">
+      <HeroVideoDialogDemoTopInBottomOut/>
       </div>
+      <Features />
     </main>
   );
 }
