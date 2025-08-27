@@ -4,7 +4,7 @@ import NextAuth from "next-auth";
 const { auth } = NextAuth(authConfig);
 
 const authRoutes = ["/auth/login", "/auth/register"];
-const publicRoutes = ["/"]; // 
+const publicRoutes = ["/" , "/about"]; // 
 
 export default auth((req) => {
   const isLoggedIn = !!req.auth;

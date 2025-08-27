@@ -5,9 +5,9 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
-export default function IntegrationsSection() {
+export default function Integration() {
     return (
-        <section>
+        <section id='integration'>
             <div className="bg-muted dark:bg-background py-24 md:py-32">
                 <div className="mx-auto max-w-5xl px-6">
                     <div className="grid items-center sm:grid-cols-2">
@@ -15,15 +15,15 @@ export default function IntegrationsSection() {
                             <div className="bg-radial to-muted dark:to-background absolute inset-0 z-10 from-transparent to-75%"></div>
                             <div className="mx-auto mb-2 flex w-fit justify-center gap-2">
                                 <IntegrationCard>
-                                    <Image src={Notion} alt='notion' height={30} width={30 }  />
+                                    <Image src={Notion} alt='notion' height={100} width={100}  />
                                 </IntegrationCard>
                                 <IntegrationCard>
-                                    <Image src={Youtuber} alt='youtube' height={30} width={30} />
+                                    <Image src={Youtuber} alt='youtube' height={100} width={100} />
                                 </IntegrationCard>
                             </div>
                             <div className="mx-auto my-2 flex w-fit justify-center gap-2">
                                 <IntegrationCard>
-                                    <Image src={Spotify} alt='spotify' height={30} width={30} />
+                                    <Image src={Spotify} alt='spotify' height={100} width={100} />
                                 </IntegrationCard>
                                 <IntegrationCard
                                     borderClassName="shadow-black-950/10 shadow-xl border-black/25 dark:border-white/25"
@@ -43,7 +43,7 @@ export default function IntegrationsSection() {
                                 variant="outline"
                                 size="sm"
                                 asChild>
-                                <Link href="#">Get Started</Link>
+                                <Link href="/dashboard">Get Started</Link>
                             </Button>
                         </div>
                     </div>

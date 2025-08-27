@@ -26,16 +26,16 @@ export default function HeroSection() {
                                 </Link>
 
                                 <h1 className="mt-8 text-4xl font-semibold md:text-5xl xl:text-5xl xl:[line-height:1.125]">
-                                    Tame the Wild West <br /> of Frontend Development
+                                    All in one Superbrain <br /> manage your links at one place 
                                 </h1>
-                                <p className="mx-auto mt-8 hidden max-w-2xl text-wrap text-lg sm:block">Tailwindcss highly customizable components for building modern websites and applications that look and feel the way you mean it.</p>
-                                <p className="mx-auto mt-6 max-w-2xl text-wrap sm:hidden">Highly customizable components for building modern websites and applications, with your personal spark.</p>
+                                <p className="mx-auto mt-8 hidden max-w-2xl text-wrap text-lg sm:block">Brain Fork is a modern web-based Second brain application that helps you easily organize important links, notes, and resources without the complexity of heavy tools like Notion..</p>
+                                <p className="mx-auto mt-6 max-w-2xl text-wrap sm:hidden"> Designed with a responsive layout, smooth navigation, and clean UI components, it provides a lightweight yet scalable solution for personal knowledge management while keeping the user experience simple and engaging.</p>
 
                                 <div className="mt-8">
                                     <Button
                                         size="lg"
                                         asChild>
-                                        <Link href="#">
+                                        <Link href="/dashboard">
                                             <Rocket className="relative size-4" />
                                             <span className="text-nowrap">Start Building</span>
                                         </Link>

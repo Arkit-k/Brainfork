@@ -9,21 +9,40 @@ import { cn } from "@/lib/utils"
 
 const menuItems = [
   { name: "Features", href: "#features" },
-  { name: "Solution", href: "#solution" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "About", href: "#about" },
+  { name: "Integration", href: "#integration" },
+  { name: "About", href: "/about"},
 ]
 
 export const HeroHeader = () => {
   const [menuState, setMenuState] = React.useState(false)
   const [isScrolled, setIsScrolled] = React.useState(false)
+  const [active, setActive] = React.useState("")
 
+  // detect scroll
   React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // track active section
+  React.useEffect(() => {
+    const sections = document.querySelectorAll("section[id]")
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(`#${entry.target.id}`)
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
   }, [])
 
   return (
@@ -34,7 +53,7 @@ export const HeroHeader = () => {
       >
         <div
           className={cn(
-            "mx-auto  max-w-6xl px-6 transition-all duration-300 lg:px-12",
+            "mx-auto max-w-6xl px-6 transition-all duration-300 lg:px-12",
             isScrolled &&
               "bg-background/50 max-w-5xl rounded-2xl border backdrop-blur-lg lg:px-5"
           )}
@@ -42,7 +61,11 @@ export const HeroHeader = () => {
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
             {/* Logo + Mobile Toggle */}
             <div className="flex w-full justify-between lg:w-auto">
-              <Link href="/" aria-label="home" className="flex items-center space-x-2">
+              <Link
+                href="/"
+                aria-label="home"
+                className="flex items-center space-x-2"
+              >
                 <Image
                   src="/logo.png"
                   alt="Logo"
@@ -50,7 +73,6 @@ export const HeroHeader = () => {
                   height={200}
                   priority
                 />
-
               </Link>
 
               {/* Mobile Menu Toggle */}
@@ -68,12 +90,26 @@ export const HeroHeader = () => {
               <ul className="flex gap-8 text-sm">
                 {menuItems.map((item, index) => (
                   <li key={index}>
-                    <Link
-                      href={item.href}
-                      className="text-muted-foreground hover:text-accent-foreground block duration-150"
-                    >
-                      {item.name}
-                    </Link>
+                    {item.href.startsWith("#") ? (
+                      <a
+                        href={item.href}
+                        className={cn(
+                          "block duration-150",
+                          active === item.href
+                            ? "text-blue-500 font-semibold"
+                            : "text-muted-foreground hover:text-accent-foreground"
+                        )}
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -96,12 +132,28 @@ export const HeroHeader = () => {
               <ul className="space-y-6 text-base">
                 {menuItems.map((item, index) => (
                   <li key={index}>
-                    <Link
-                      href={item.href}
-                      className="text-muted-foreground hover:text-accent-foreground block duration-150"
-                    >
-                      {item.name}
-                    </Link>
+                    {item.href.startsWith("#") ? (
+                      <a
+                        href={item.href}
+                        onClick={() => setMenuState(false)}
+                        className={cn(
+                          "block duration-150",
+                          active === item.href
+                            ? "text-blue-500 font-semibold"
+                            : "text-muted-foreground hover:text-accent-foreground"
+                        )}
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMenuState(false)}
+                        className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -120,3 +172,4 @@ export const HeroHeader = () => {
     </header>
   )
 }
+

@@ -2,6 +2,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { ChartBarIncreasingIcon, Database, Fingerprint, IdCard } from 'lucide-react'
 import Image from 'next/image'
+
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { BorderBeam } from '../magicui/border-beam'
@@ -12,30 +13,30 @@ export default function Features() {
 
     const images = {
         'item-1': {
-            image: '/charts.png',
+            image: '/notion-removebg-preview.png',
             alt: 'Database visualization',
         },
         'item-2': {
-            image: '/music.png',
+            image: '/spotify-removebg-preview.png',
             alt: 'Security authentication',
         },
         'item-3': {
-            image: '/mail2.png',
+            image: '/tweet-removebg-preview.png',
             alt: 'Identity management',
         },
         'item-4': {
-            image: '/payments.png',
+            image: '/youtube-removebg-preview.png',
             alt: 'Analytics dashboard',
         },
     }
 
     return (
-        <section className="py-12 md:py-20 lg:py-32">
+        <section id="features" className="py-12 md:py-20 lg:py-32">
             <div className="bg-linear-to-b absolute inset-0 -z-10 sm:inset-6 sm:rounded-b-3xl dark:block dark:to-[color-mix(in_oklab,var(--color-zinc-900)_75%,var(--color-background))]"></div>
             <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 lg:space-y-20 dark:[--color-border:color-mix(in_oklab,var(--color-white)_10%,transparent)]">
                 <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-6xl">The foundation for AI</h2>
-                    <p>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</p>
+                    <h2 className="text-balance text-4xl font-semibold lg:text-6xl">User friendly Design</h2>
+                    <p>Brainfork is userfriendly designed and maintained by developer and you can use </p>
                 </div>
 
                 <div className="grid gap-12 sm:px-12 md:grid-cols-2 lg:gap-20 lg:px-0">
@@ -48,7 +49,7 @@ export default function Features() {
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
                                     <Database className="size-4" />
-                                    Database Visualization
+                                    Simple to use 
                                 </div>
                             </AccordionTrigger>
                             <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
@@ -57,7 +58,7 @@ export default function Features() {
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
                                     <Fingerprint className="size-4" />
-                                    Advanced Authentication
+                                    Card based system
                                 </div>
                             </AccordionTrigger>
                             <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>
@@ -66,7 +67,7 @@ export default function Features() {
                             <AccordionTrigger>
                                 <div className="flex items-center gap-2 text-base">
                                     <IdCard className="size-4" />
-                                    Identity Management
+                                    Multi-Link support
                                 </div>
                             </AccordionTrigger>
                             <AccordionContent>Lyra is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</AccordionContent>

@@ -4,6 +4,8 @@ import  { HeroHeader } from "../components/landing page/header"
 import HeroSection from "@/components/landing page/hero";
 import { HeroVideoDialogDemoTopInBottomOut } from "@/components/landing page/herovideo";
 import Features from "@/components/landing page/feature";
+import Integration from "@/components/landing page/integration";
+import  Footer  from "@/components/landing page/footer";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <HeroVideoDialogDemoTopInBottomOut/>
       </div>
       <Features />
+      <Integration />
+      <Footer />
     </main>
   );
 }
