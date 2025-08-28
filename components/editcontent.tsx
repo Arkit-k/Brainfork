@@ -1,4 +1,3 @@
-// src/app/components/ContentCard.tsx
 "use client"
 
 import { useState } from "react"

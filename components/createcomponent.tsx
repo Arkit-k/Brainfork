@@ -4,6 +4,7 @@
 import { useState, useTransition } from "react"
 import { createContent } from "@/actions/content/create"
 import { ContentSchemas } from "@/schema/index"
+import { SuccessAlert } from "./ui/alerts"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import {
@@ -19,6 +20,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { ContentTypeSelect } from "./popover"
 
 export default function CreateContentForm() {
+  const [showAlert , setShowAlert] = useState(false)
   const [open, setOpen] = useState(false)
   const [isPending, startTransition] = useTransition()
   const [form, setForm] = useState({
@@ -28,6 +30,11 @@ export default function CreateContentForm() {
     tags: "",
     type:""
   })
+
+  const handleSuccess = () => {
+    setShowAlert(true)
+    setTimeout(() => setShowAlert(false), 1000)
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -56,6 +63,7 @@ export default function CreateContentForm() {
   }
 
   return (
+    <>
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>+ Create</Button>
@@ -113,5 +121,10 @@ export default function CreateContentForm() {
         </div>
       </DialogContent>
     </Dialog>
+    <SuccessAlert
+      isVisible={showAlert}
+      onClose={() => setShowAlert(false)}
+    />
+    </>
   )
 }
